@@ -8,10 +8,10 @@
   <body ng-controller="StoreController as store">
     <div class="container">
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="product in store.products">
+        <li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
           <h3>
             {{product.name}}
-            <em class="pull-right">${{product.price}}</em>
+            <em class="pull-right">{{product.price | currency}}</em>
           </h3>
         </div>
       </ul>
