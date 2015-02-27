@@ -62,4 +62,12 @@
       return this.tab === checkTab;
     };
   });
+  app.controller('ReviewController', function () {
+    this.reviews = {};
+    
+    this.addReview = function (product) {
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+  });
 }());
