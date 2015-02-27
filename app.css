@@ -1,0 +1,12 @@
+/*
+  Yup, get a adjoining classes css lint problem
+  but it doesn't work with .ng-dirty on it's own
+*/
+/*csslint adjoining-classes:false */
+.ng-invalid.ng-dirty {
+  border-color: #fa787e;
+}
+
+.ng-valid.ng-dirty {
+  border-color: #78fa89;
+}
