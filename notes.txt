@@ -1,0 +1,19 @@
+# Post objects
+$http.post('/path', {param: 'value'});
+$http.delete('/path');
+
+$http({method: 'OPTIONS', url: 'path'});
+$http({method: 'PATCH', url: 'path'});
+$http({method: 'TRACE', url: '/path'});
+
+# Links
+https://docs.angularjs.org/tutorial
+https://docs.angularjs.org/guide
+https://docs.angularjs.org/api
+https://egghead.io
+http://www.thinkster.io
+http://kapeli.com/dash
+http://www.meetup.com - look for angularjs
+https//www.codeschool.com/code_tv/soup-to-bits-warming-up-with-augular(ember)
+
+more code school
