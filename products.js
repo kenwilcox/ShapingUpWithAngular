@@ -1,4 +1,6 @@
-(function() {
+/*global angular */
+(function () {
+  'use strict';
   var app = angular.module('store-products', [ ]);
   app.directive('productTitle', function () {
     return {
@@ -25,7 +27,7 @@
 
         this.isSelected = function (checkTab) {
           return this.tab === checkTab;
-        }
+        };
       },
       controllerAs: 'panel'
     };
