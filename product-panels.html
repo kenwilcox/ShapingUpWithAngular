@@ -1,0 +1,71 @@
+<!-- Product Tabs -->
+<section>
+  <ul class="nav nav-pills">
+    <li data-ng-class="{ active: panel.isSelected(1) }">
+      <a href="#" data-ng-click="panel.selectTab(1)">Description</a>
+    </li>
+    <li data-ng-class="{ active: panel.isSelected(2) }">
+      <a href="#" data-ng-click="panel.selectTab(2)">Specifications</a>
+    </li>
+    <li data-ng-class="{ active: panel.isSelected(3) }">
+      <a href="#" data-ng-click="panel.selectTab(3)">Reviews</a>
+    </li>
+  </ul>
+  <!--{{tab}}-->
+  <!-- Description Tab Content -->
+  <div class="panel" data-ng-show="panel.isSelected(1)" product-description>
+  </div>
+
+  <!-- Spec Tab Content -->
+  <div class="panel" data-ng-show="panel.isSelected(2)">
+    <h4>Specifications</h4>
+    <blockquote>None yet</blockquote>
+  </div>
+
+  <!-- Review Tab Content -->
+  <div class="panel" data-ng-show="panel.isSelected(3)">
+    <h4>Reviews</h4>
+    <ul>
+      <li data-ng-repeat="review in product.reviews">
+        <blockquote>
+          <strong>{{review.stars}} Stars</strong> {{review.body}}
+          <cite class="clearfix">—{{review.author}}</cite>
+        </blockquote>
+      </li>
+    </ul>
+
+    <form class="form-horizontal" name="reviewForm" data-ng-controller="ReviewController as reviewCtrl" data-ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+      <blockquote>
+        <strong>{{reviewCtrl.review.stars}} Stars</strong> {{reviewCtrl.review.body}}
+        <cite class="clearfix">—{{reviewCtrl.review.author}}</cite>
+      </blockquote>
+      <!-- Review Form -->
+      <fieldset class="form-group">
+        <select class="form-control" data-ng-model="reviewCtrl.review.stars" required>
+          <option value="">Rate the Product</option>
+          <option value="1">1 star</option>
+          <option value="2">2 star</option>
+          <option value="3">3 star</option>
+          <option value="4">4 star</option>
+          <option value="5">5 star</option>
+        </select>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <textarea class="form-control" rows="3" data-ng-model="reviewCtrl.review.body" placeholder="Write a short review of the product..." title="Review" required></textarea>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>by:</label>
+        <input type="email" class="form-control" data-ng-model="reviewCtrl.review.author" placeholder="jimmyDean@example.org" title="Email" required />
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+      </fieldset>
+
+      <div> reviewForm is {{reviewForm.$valid}} </div>
+
+    </form>
+  </div>
+</section>
